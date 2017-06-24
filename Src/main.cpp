@@ -38,6 +38,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "blink.h"
+#include "Blinker.h"
 
 #include "stm32f4xx_hal.h"
 
@@ -97,6 +98,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  playground::Blinker *bl = new playground::Blinker(LD2_Green_LED_GPIO_Port, LD2_Green_LED_Pin);
   while (1)
   {
   /* USER CODE END WHILE */
@@ -104,7 +107,7 @@ int main(void)
   /* USER CODE BEGIN 3 */
 //	  HAL_Delay(100);
 //	  HAL_GPIO_TogglePin(LD2_Green_LED_GPIO_Port, LD2_Green_LED_Pin);
-	  bleep(LD2_Green_LED_GPIO_Port, LD2_Green_LED_Pin, 100, 3);
+	  bl->bleep(100, 6);
   }
   /* USER CODE END 3 */
 
